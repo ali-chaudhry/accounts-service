@@ -23,5 +23,17 @@ async function bootstrap() {
   );
 
   await initService.listen();
+
+  const initRedis = await NestFactory.createMicroservice<MicroserviceOptions>(
+    AppModule,
+    {
+      transport: Transport.REDIS,
+      options: {
+        url: 'redis://localhost:6379',
+      },
+    },
+  );
+
+  await initRedis.listen();
 }
 bootstrap();
