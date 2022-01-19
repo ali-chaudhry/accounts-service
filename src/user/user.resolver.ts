@@ -12,7 +12,7 @@ export class UserResolver {
     return this.userService.create(createUserInput);
   }
 
-  @Query('user')
+  @Query('users')
   findAll() {
     return this.userService.findAll();
   }
