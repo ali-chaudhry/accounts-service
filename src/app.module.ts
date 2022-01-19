@@ -14,7 +14,9 @@ import { AdminModule } from './admin/admin.module';
       playground: true,
       include: [UserModule],
       typePaths: ['./**/*.graphql'],
-      definitions: { path: join(process.cwd(), 'src/graphql.ts') },
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+      },
     }),
     SupplierModule,
     AdminModule,

@@ -7,27 +7,30 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface CreateUserInput {
+export class CreateUserInput {
     exampleField?: Nullable<number>;
 }
 
-export interface UpdateUserInput {
+export class UpdateUserInput {
     id: number;
 }
 
-export interface User {
+export class User {
     exampleField?: Nullable<number>;
 }
 
-export interface IQuery {
-    users(): Nullable<User>[] | Promise<Nullable<User>[]>;
-    user(id: number): Nullable<User> | Promise<Nullable<User>>;
+export abstract class IQuery {
+    abstract users(): Nullable<User>[] | Promise<Nullable<User>[]>;
+
+    abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
 
-export interface IMutation {
-    createUser(createUserInput: CreateUserInput): User | Promise<User>;
-    updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
-    removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
+export abstract class IMutation {
+    abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
+
+    abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
+
+    abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
 
 type Nullable<T> = T | null;
