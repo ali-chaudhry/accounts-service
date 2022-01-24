@@ -18,6 +18,7 @@ import { AdminModule } from './admin/admin.module';
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
       },
+      useGlobalPrefix: true,
     }),
     SupplierModule,
     AdminModule,

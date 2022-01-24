@@ -5,13 +5,15 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const initApp = await NestFactory.create(AppModule);
+  initApp.setGlobalPrefix('api/v1');
+
   const config = new DocumentBuilder()
     .setTitle('Accounts Sercvice')
     .setDescription('REST APIs description')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(initApp, config);
-  SwaggerModule.setup('api/swagger', initApp, document);
+  SwaggerModule.setup('api/v1/swagger', initApp, document);
   await initApp.listen(5002);
 
   const initService = await NestFactory.createMicroservice<MicroserviceOptions>(
