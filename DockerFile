@@ -1,0 +1,14 @@
+FROM node:14.17-alpine
+
+RUN mkdir -p /app/logs
+WORKDIR /app/
+
+COPY package*  /app/
+COPY .yarnrc /app/
+
+RUN yarn install
+# RUN yarn ci --only=production 
+
+COPY . .
+
+CMD [ "yarn", "start"]

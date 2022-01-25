@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:12.2-alpine
+    environment:
+      POSTGRES_USER: account_service_user
+      POSTGRES_PASSWORD: helloworld
+      POSTGRES_DB: microoservice
+    ports:
+      - "5432:5432"
