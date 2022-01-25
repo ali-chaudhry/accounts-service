@@ -8,26 +8,35 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface CreateUserInput {
-    exampleField?: Nullable<number>;
+    id?: Nullable<string>;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
 }
 
 export interface UpdateUserInput {
-    id: number;
+    id: string;
 }
 
 export interface User {
-    exampleField?: Nullable<number>;
+    id?: Nullable<string>;
+    firstName?: Nullable<string>;
+    lastName?: Nullable<string>;
+    email?: Nullable<string>;
+    password?: Nullable<string>;
+    deleted?: Nullable<boolean>;
 }
 
 export interface IQuery {
     users(): Nullable<User>[] | Promise<Nullable<User>[]>;
-    user(id: number): Nullable<User> | Promise<Nullable<User>>;
+    user(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export interface IMutation {
-    createUser(createUserInput: CreateUserInput): User | Promise<User>;
-    updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
-    removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
+    createUser(input?: Nullable<CreateUserInput>): Nullable<User> | Promise<Nullable<User>>;
+    updateUser(input?: Nullable<UpdateUserInput>): Nullable<User> | Promise<Nullable<User>>;
+    removeUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 }
 
 type Nullable<T> = T | null;

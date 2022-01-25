@@ -8,8 +8,9 @@ export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
   @Mutation('createUser')
-  create(@Args('createUserInput') createUserInput: CreateUserInput) {
-    return this.userService.create(createUserInput);
+  public async create(@Args('input') input: any) {
+    const newUsers = await this.userService.create(input)
+    return newUsers;
   }
 
   @Query('users')
@@ -18,17 +19,16 @@ export class UserResolver {
   }
 
   @Query('user')
-  findOne(@Args('id') id: number) {
+  findOne(@Args('id') id: string) {
     return this.userService.findOne(id);
   }
-
   @Mutation('updateUser')
-  update(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
-    return this.userService.update(updateUserInput.id, updateUserInput);
+  update(@Args('input') input: UpdateUserInput) {
+    return this.userService.update(input.id, input);
   }
 
   @Mutation('removeUser')
-  remove(@Args('id') id: number) {
+  remove(@Args('id') id: string) {
     return this.userService.remove(id);
   }
 }
