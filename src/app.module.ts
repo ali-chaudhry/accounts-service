@@ -7,9 +7,24 @@ import { AppService } from './app.service';
 import { SupplierModule } from './supplier/supplier.module';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import configuration from './config/configration';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true,
+      ignoreEnvFile: true,
+      envFilePath: './tmp/env',
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (config: ConfigService) => config.get('database'),
+      inject: [ConfigService],
+    }),
+
     GraphQLModule.forRoot({
       debug: true,
       playground: true,
@@ -32,6 +47,7 @@ import { AdminModule } from './admin/admin.module';
       },
     ]),
   ],
+
   controllers: [AppController],
   providers: [AppService],
 })
