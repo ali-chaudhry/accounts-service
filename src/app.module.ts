@@ -16,7 +16,7 @@ import configuration from './config/configration';
       load: [configuration],
       isGlobal: true,
       ignoreEnvFile: true,
-      envFilePath:'.env',
+      envFilePath: '.env',
     }),
 
     GraphQLModule.forRoot({
@@ -41,7 +41,7 @@ import configuration from './config/configration';
       },
     ]),
   ],
- 
+
   controllers: [AppController],
   providers: [AppService],
 })
