@@ -28,13 +28,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     GraphQLModule.forRoot({
       debug: true,
       playground: true,
-      include: [UserModule],
       typePaths: ['./**/*.graphql'],
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
       },
       useGlobalPrefix: true,
     }),
+    UserModule,
     SupplierModule,
     AdminModule,
     ClientsModule.register([

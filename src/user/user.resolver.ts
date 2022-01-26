@@ -8,8 +8,8 @@ export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
   @Mutation('createUser')
-  public async create(@Args('input') input: any) {
-    const newUsers = await this.userService.create(input)
+  public async createUser(@Args('input') input: any) {
+    const newUsers = await this.userService.create(input);
     return newUsers;
   }
 

@@ -1,10 +1,11 @@
 import * as config from 'dotenv';
 import * as path from 'path';
+import { join } from 'path';
 
 const NODE_ENV = process.env.NODE_ENV;
 const envFile = path.resolve(
   process.cwd(),
-  `.env${NODE_ENV ? `.${NODE_ENV}` : ''}`
+  `.env${NODE_ENV ? `.${NODE_ENV}` : ''}`,
 );
 
 process.env = { ...process.env, ...config.config({ path: envFile }).parsed };
@@ -20,9 +21,11 @@ export default () => ({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    //  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-    //migrationsTableName: 'migrations_typeorm',
-    //migrationsRun: true,
+    entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+    //entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+    migrations: ['src/migration/*.ts'],
+    migrationsTableName: 'migrations_typeorm',
+    migrationsRun: true,
     ssl: false,
     synchronize: false,
     keepConnectionAlive: true,

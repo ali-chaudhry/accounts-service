@@ -10,7 +10,7 @@ export class UserService {
   constructor(
     @InjectRepository(User) private readonly repo: Repository<User>,
   ) {}
-  create(input: any) {
+  create(input: CreateUserInput) {
     return this.repo.save(input);
   }
 
