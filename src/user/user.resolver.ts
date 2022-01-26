@@ -3,14 +3,14 @@ import { UserService } from './user.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { User } from './entities/user.entity';
-import { hash } from 'bcryptjs';
 import { PasswordHasherService } from 'src/auth/password-hasher/password-hasher.service';
-
 
 @Resolver('User')
 export class UserResolver {
-  constructor(private readonly userService: UserService,
-    private readonly passwordHashService: PasswordHasherService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly passwordHashService: PasswordHasherService,
+  ) {}
 
   @Mutation('createUser')
   public async createUser(@Args('input') input: any) {
@@ -23,14 +23,23 @@ export class UserResolver {
     }
     const _user = new User();
     _user.email = input.email.toLowerCase().trim().replaceAll(' ', '');
-    _user.firstName= input.firstName;
+    _user.firstName = input.firstName;
     _user.lastName = input.lastName;
-    _user.password=input.password;
-    if(input.password){
-      _user.password = input.password
-      const encriptedPassword = await this.passwordHashService.hashPassword(input.password);
+    _user.password = input.password;
+
+    let createUsers: any;
+
+    if (input.password) {
+      _user.password = input.password;
+      const encriptedPassword = await this.passwordHashService.hashPassword(
+        input.password,
+      );
+      createUsers = await this.userService.create({
+        ..._user,
+        password: encriptedPassword
+      })
     }
-    
+    return createUsers;
   }
 
   @Query('users')
