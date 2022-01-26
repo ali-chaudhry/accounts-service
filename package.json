@@ -43,6 +43,7 @@
     "amqplib": "^0.8.0",
     "apollo-server-express": "^3.6.1",
     "dotenv": "^14.2.0",
+    "googleapis": "^92.0.0",
     "graphql": "^15",
     "kafkajs": "^1.15.0",
     "mysql2": "^2.3.3",

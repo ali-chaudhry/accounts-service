@@ -8,6 +8,7 @@ import { SupplierModule } from './supplier/supplier.module';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { GoogleModule } from './google/google.module';
 import configuration from './config/configration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -46,6 +47,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         },
       },
     ]),
+    GoogleModule,
   ],
 
   controllers: [AppController],

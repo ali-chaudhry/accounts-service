@@ -1,0 +1,8 @@
+### Initialize Google Analytics
+POST http://localhost:5002/api/v1/google/initialize/analytics
+Content-Type: application/json
+
+{
+  "test":true
+}
+
