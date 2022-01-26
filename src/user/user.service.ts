@@ -29,4 +29,13 @@ export class UserService {
   remove(id: string) {
     return this.repo.delete(id);
   }
+
+  public async existingUser(email: string): Promise<User | undefined> {
+    return this.repo.findOne({
+      where: {
+        email: `${email}`,
+        deleted: false,
+      },
+    });
+  }
 }
