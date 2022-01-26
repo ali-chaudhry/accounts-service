@@ -19,11 +19,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-      "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./ormconfig.ts",
-      "migration-generate": "npm run typeorm:cli -- migration:generate -n migration -d src/migrations",
-      "migration-run": "npm run typeorm:cli -- migration:run ",
-      "migration-create": "npm run typeorm:cli -- migration:create -n migration -d src/migrations",
-      "pretty": "prettier --write \"./**/*.{ts}\""
+    "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./ormconfig.ts",
+    "migration-generate": "npm run typeorm:cli -- migration:generate -n migration -d src/migrations",
+    "migration-run": "npm run typeorm:cli -- migration:run ",
+    "migration-create": "npm run typeorm:cli -- migration:create -n migration -d src/migrations",
+    "pretty": "prettier --write \"./**/*.{ts}\""
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.5.0",
@@ -42,6 +42,7 @@
     "amqp-connection-manager": "^4.0.0",
     "amqplib": "^0.8.0",
     "apollo-server-express": "^3.6.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^14.2.0",
     "graphql": "^15",
     "kafkajs": "^1.15.0",
