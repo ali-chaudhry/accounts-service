@@ -30,4 +30,8 @@ export default () => ({
     synchronize: false,
     keepConnectionAlive: true,
   },
+  googleAnalytics: {
+    clientEmail: process.env.GOOGLE_ANALYTICS_CLIENT_EMAIL,
+    clientSecret: process.env.GOOGLE_ANALYTICS_CLIENT_SECRET,
+  },
 });

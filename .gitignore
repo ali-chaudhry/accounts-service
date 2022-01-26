@@ -17,6 +17,9 @@ lerna-debug.log*
 # Environemt
 .env
 
+# yarn lock
+yarn.lock
+
 # Tests
 /coverage
 /.nyc_output
