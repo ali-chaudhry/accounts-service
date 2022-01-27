@@ -10,6 +10,7 @@ import { AdminModule } from './admin/admin.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configration';
 import { TypeOrmModule } from '@nestjs/typeorm';
+//import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         },
       },
     ]),
+    //AuthModule,
   ],
 
   controllers: [AppController],

@@ -23,4 +23,7 @@ export class User {
 
   @Column({ type: 'boolean', nullable: false, default: false })
   deleted: boolean;
+
+  @Column({ type: 'text', nullable: true })
+  token: string;
 }

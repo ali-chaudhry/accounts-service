@@ -26,6 +26,7 @@ export interface User {
     email?: Nullable<string>;
     password?: Nullable<string>;
     deleted?: Nullable<boolean>;
+    token?: Nullable<string>;
 }
 
 export interface IQuery {
