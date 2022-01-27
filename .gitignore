@@ -15,7 +15,8 @@ lerna-debug.log*
 # OS
 .DS_Store
 
-# yarn.lock
+# yarn
+yarn.lock
 
 # Environemt
 .env
