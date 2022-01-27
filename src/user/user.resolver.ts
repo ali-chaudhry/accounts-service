@@ -3,13 +3,16 @@ import { UserService } from './user.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { User } from './entities/user.entity';
+import { omit as lodashOmit } from 'lodash';
 import { PasswordHasherService } from 'src/auth/password-hasher/password-hasher.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Resolver('User')
 export class UserResolver {
   constructor(
     private readonly userService: UserService,
     private readonly passwordHashService: PasswordHasherService,
+    private readonly jwtService: JwtService,
   ) {}
 
   @Mutation('createUser')
@@ -34,10 +37,15 @@ export class UserResolver {
       const encriptedPassword = await this.passwordHashService.hashPassword(
         input.password,
       );
+      const token = this.jwtService.sign({
+        ...lodashOmit(createUsers, ['password']),
+      });
+
       createUsers = await this.userService.create({
         ..._user,
-        password: encriptedPassword
-      })
+        password: encriptedPassword,
+        token,
+      });
     }
     return createUsers;
   }
