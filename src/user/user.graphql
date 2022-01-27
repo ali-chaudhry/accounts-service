@@ -5,6 +5,7 @@ type User {
   email: String
   password: String
   deleted: Boolean
+  token: String
 }
 
 input CreateUserInput {

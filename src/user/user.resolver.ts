@@ -3,9 +3,14 @@ import { UserService } from './user.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { User } from './entities/user.entity';
+import { omit as lodashOmit } from 'lodash';
 import { PasswordHasherService } from 'src/auth/password-hasher/password-hasher.service';
+
 import { JwtService } from 'src/auth';
 import { omit as lodashOmit } from 'lodash';
+
+import { JwtService } from '@nestjs/jwt';
+
 
 @Resolver('User')
 export class UserResolver {
@@ -37,17 +42,27 @@ export class UserResolver {
       const encriptedPassword = await this.passwordHashService.hashPassword(
         input.password,
       );
+
       const tokens = this.jwtService.sign({
         ...lodashOmit(createUsers, ['encriptedPassword']),
+
+      const token = this.jwtService.sign({
+        ...lodashOmit(createUsers, ['password']),
+
       });
 
       createUsers = await this.userService.create({
         ..._user,
         password: encriptedPassword,
+
         token: tokens,
       });
       const verifyToken = await this.jwtService.verify(tokens);
       console.log(verifyToken);
+
+        token,
+      });
+
     }
     return createUsers;
   }
