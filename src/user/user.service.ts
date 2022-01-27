@@ -21,15 +21,17 @@ export class UserService {
   findOne(id: string) {
     return this.repo.findOne(id);
   }
-  // @TODO
-  update(id: any, updateUserInput: UpdateUserInput) {
-    return this.repo.update(updateUserInput, id);
-  }
 
   remove(id: string) {
     return this.repo.delete(id);
   }
+  public async user(id: string) {
+    return await this.repo.findOne({ id, deleted: false });
+  }
 
+  public async update(input: any) {
+  return await this.repo.save(input.id)
+  }
   public async existingUser(email: string): Promise<User | undefined> {
     return this.repo.findOne({
       where: {

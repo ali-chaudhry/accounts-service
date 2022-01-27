@@ -21,6 +21,7 @@ input UpdateUserInput {
 }
 
 type Query {
+  login(email: String, password: String): User
   users: [User]!
   user(id: String): User
 }

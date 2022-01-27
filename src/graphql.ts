@@ -30,6 +30,7 @@ export interface User {
 }
 
 export interface IQuery {
+    login(email?: Nullable<string>, password?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
     users(): Nullable<User>[] | Promise<Nullable<User>[]>;
     user(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 }

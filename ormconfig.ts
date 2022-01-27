@@ -4,7 +4,7 @@ const envFile = '/tmp/env';
 
 process.env = { ...process.env, ...config.config({ path: envFile }).parsed };
 
-console.log(process.env.NODE_ENV, process.env.DB_HOST);
+//console.log(process.env.NODE_ENV, process.env.DB_HOST);
 export = {
   // ...configutations().database,
   type: 'postgres',
