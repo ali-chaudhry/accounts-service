@@ -4,13 +4,16 @@ import { google } from 'googleapis';
 @Injectable()
 export class GoogleService {
   initializeAnalytics() {
+    const credenticals = { clientEmail: 'alianwar', clientSecret: '21213' };
     const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
+    console.log('credentials', credenticals);
     const jwt = new google.auth.JWT(
-      process.env.CLIENT_EMAIL,
+      credenticals.clientEmail,
       null,
-      process.env.PRIVATE_KEY,
+      credenticals.clientSecret,
       scopes,
     );
-    return { success: true };
+
+    return { success: true, jwt };
   }
 }
