@@ -1,0 +1,18 @@
+type Messege {
+  id: String
+}
+
+input CreateMessegeInput {
+  text: String
+}
+
+input UpdateMessegeInput {
+  id: String 
+  text: String
+}
+
+type Subscription {
+  createMessege(createMessegeInput: CreateMessegeInput!): Messege!
+  updateMessege(updateMessegeInput: UpdateMessegeInput!): Messege!
+  removeMessege(id: String!): Messege
+}

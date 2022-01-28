@@ -11,6 +11,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GoogleModule } from './google/google.module';
 import configuration from './config/configration';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MessegesModule } from './messeges/messeges.module';
 
 @Module({
   imports: [
@@ -48,6 +49,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       },
     ]),
     GoogleModule,
+    MessegesModule,
   ],
 
   controllers: [AppController],
