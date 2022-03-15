@@ -17,6 +17,9 @@ lerna-debug.log*
 # Environemt
 .env
 
+# AWS Credentials
+.aws
+
 # yarn lock
 yarn.lock
 
