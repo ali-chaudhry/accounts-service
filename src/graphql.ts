@@ -7,11 +7,11 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface CreateMessegeInput {
+export interface CreateMessageInput {
     text?: Nullable<string>;
 }
 
-export interface UpdateMessegeInput {
+export interface UpdateMessageInput {
     id?: Nullable<string>;
     text?: Nullable<string>;
 }
@@ -28,14 +28,14 @@ export interface UpdateUserInput {
     id: string;
 }
 
-export interface Messege {
+export interface Message {
     id?: Nullable<string>;
 }
 
 export interface ISubscription {
-    createMessege(createMessegeInput: CreateMessegeInput): Messege | Promise<Messege>;
-    updateMessege(updateMessegeInput: UpdateMessegeInput): Messege | Promise<Messege>;
-    removeMessege(id: string): Nullable<Messege> | Promise<Nullable<Messege>>;
+    createMessage(createMessageInput: CreateMessageInput): Message | Promise<Message>;
+    updateMessage(updateMessageInput: UpdateMessageInput): Message | Promise<Message>;
+    removeMessage(id: string): Nullable<Message> | Promise<Nullable<Message>>;
 }
 
 export interface User {

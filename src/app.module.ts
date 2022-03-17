@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver } from '@nestjs/apollo';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 import { AppController } from './app.controller';
@@ -11,7 +12,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GoogleModule } from './google/google.module';
 import configuration from './config/configration';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MessegesModule } from './messeges/messeges.module';
+import { MessagesModule } from './messages/messages.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { MessegesModule } from './messeges/messeges.module';
     }),
 
     GraphQLModule.forRoot({
+      driver: ApolloDriver,
       debug: true,
       playground: true,
       typePaths: ['./**/*.graphql'],
@@ -49,7 +51,7 @@ import { MessegesModule } from './messeges/messeges.module';
       },
     ]),
     GoogleModule,
-    MessegesModule,
+    MessagesModule,
   ],
 
   controllers: [AppController],

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMessegeInput, UpdateMessegeInput } from '../graphql';
+import { CreateMessageInput, UpdateMessageInput } from '../graphql';
 
 @Injectable()
-export class MessegesService {
-  create(createMessegeInput: CreateMessegeInput) {
+export class MessagesService {
+  create(createMessegeInput: CreateMessageInput) {
     return createMessegeInput;
   }
 
@@ -15,7 +15,7 @@ export class MessegesService {
     return `This action returns a #${id} messege`;
   }
 
-  update(updateMessegeInput: UpdateMessegeInput) {
+  update(updateMessegeInput: UpdateMessageInput) {
     return `This action updates a #${updateMessegeInput.id} messege`;
   }
 

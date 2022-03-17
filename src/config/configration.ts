@@ -8,7 +8,7 @@ const envFile = path.resolve(
 );
 
 process.env = { ...process.env, ...config.config({ path: envFile }).parsed };
-
+console.log('configuration called...', process.env);
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3000,
   database: {
