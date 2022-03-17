@@ -1,7 +1,7 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('User')
-@Index('User_id_UNIUQE', ['id'], {
+@Index('user_id_unique', ['id'], {
   unique: true,
   where: 'deleted=true',
 })

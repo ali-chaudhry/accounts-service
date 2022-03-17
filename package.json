@@ -20,9 +20,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./ormconfig.ts",
-    "migration-generate": "npm run typeorm:cli -- migration:generate -n migration -d src/migrations",
+    "migration-generate": "npm run typeorm:cli -- migration:generate -n migration",
     "migration-run": "npm run typeorm:cli -- migration:run ",
-    "migration-create": "npm run typeorm:cli -- migration:create -n migration -d src/migrations",
+    "migration-create": "npm run typeorm:cli -- migration:create -n migration",
     "pretty": "prettier --write \"./**/*.{ts}\""
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.3.0",
-    "typeorm": "^0.2.41"
+    "typeorm": "^0.2.45"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
