@@ -24,10 +24,19 @@ import { MessagesModule } from './messages/messages.module';
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (config: ConfigService) => config.get('database'),
+      useFactory: (config: ConfigService) => config.get('postgresUsersDb'),
       inject: [ConfigService],
     }),
-
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (config: ConfigService) => config.get('postgresAdminsDb'),
+      inject: [ConfigService],
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (config: ConfigService) => config.get('mysqlSuppliersDb'),
+      inject: [ConfigService],
+    }),
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       debug: true,
