@@ -14,7 +14,6 @@ process.env = { ...process.env, ...config.config({ path: envFile }).parsed };
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3000,
   postgresUsersDb: {
-    name: 'default',
     type: 'postgres',
     host: process.env.DB_USERS_HOST,
     port: process.env.DB_USERS_PORT,
@@ -32,7 +31,6 @@ export default () => ({
     cli: { migrationsDir: 'src/migrations/users' },
   },
   postgresAdminsDb: {
-    name: 'pg2',
     type: 'postgres',
     host: process.env.DB_ADMINS_HOST,
     port: process.env.DB_ADMINS_PORT,
@@ -50,7 +48,6 @@ export default () => ({
     keepConnectionAlive: true,
   },
   mysqlSuppliersDb: {
-    name: 'mysql1',
     type: 'mysql',
     host: process.env.DB_SUPPLIERS_HOST,
     port: process.env.DB_SUPPLIERS_PORT,
