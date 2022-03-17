@@ -28,6 +28,7 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.5.0",
     "@grpc/proto-loader": "^0.6.9",
+    "@nestjs/apollo": "^10.0.7",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.1.6",
     "@nestjs/core": "^8.0.0",
