@@ -22,6 +22,7 @@
     "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./ormconfig.ts",
     "migration-generate": "npm run typeorm:cli -- migration:generate -n migration",
     "migration-run": "npm run typeorm:cli -- migration:run ",
+    "migration-run:admin": "npm run typeorm:cli -- migration:run -d",
     "migration-create": "npm run typeorm:cli -- migration:create -n migration",
     "pretty": "prettier --write \"./**/*.{ts}\""
   },

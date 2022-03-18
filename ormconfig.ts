@@ -19,7 +19,7 @@ export = [
     entities: [User],
     migrations: ['src/migrations/users/*{.ts,.js}'],
     cli: {
-      migrationsDir: 'src/migration/users',
+      migrationsDir: 'src/migrations/users',
     },
     migrationsTableName: 'migrations_typeorm_users',
     migrationsRun: true,
@@ -39,7 +39,7 @@ export = [
     migrations: ['src/migrations/admins/*{.ts,.js}'],
     migrationsTableName: 'migrations_typeorm_admins',
     cli: {
-      migrationsDir: 'src/migration/admins',
+      migrationsDir: 'src/migrations/admins',
     },
     migrationsRun: true,
     ssl: false,
@@ -57,7 +57,7 @@ export = [
     entities: [Supplier],
     migrations: ['src/migrations/suppliers/*{.ts,.js}'],
     cli: {
-      migrationsDir: 'src/migration/suppliers',
+      migrationsDir: 'src/migrations/suppliers',
     },
     migrationsTableName: 'migrations_typeorm_suppliers',
     migrationsRun: true,
