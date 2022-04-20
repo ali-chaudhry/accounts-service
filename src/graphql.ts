@@ -17,11 +17,11 @@ export interface UpdateMessageInput {
 }
 
 export interface CreateUserInput {
-    id?: Nullable<string>;
     firstName: string;
     lastName: string;
     email: string;
     password: string;
+    confirmPassword: string;
 }
 
 export interface UpdateUserInput {
